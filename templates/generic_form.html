@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login/Sign Up</title>
+    </head>
+    <body>
+        <h1>{{ headline }}</h1>
+        <div>
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+                {% if request.path == '/signup/' %}
+                <input type="submit" value="Sign Up" />
+                {% else %}
+                <input type="submit" value="Login" />
+                <a href="/signup/">
+                    <button type="button">Create Account</button>
+                </a>
+                {% endif %}
+            </form>
+        </div>
+    </body>
+</html>
